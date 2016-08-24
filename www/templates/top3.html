@@ -1,0 +1,45 @@
+
+
+<ion-view title="{{title}}"  hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-click="locationSwap.go('home')" class="button button-icon icon ion-home"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header" scroll="false">
+        <div id="bottom_background">
+            <h2>
+
+                <div ng-repeat="i in [0, 1, 2]" ng-if="top3.features[i] != null" >
+                    <div class="row">
+                        <div class="col background04">
+                            <img  id="top3Btn" ng-src="img/top3Btn{{i + 1}}{{i + 1}}.png" style="width: 30px;">
+                        </div>
+                        <div class="col background04">
+                            <p class="top3_thunderbolts"><small>{{top3.features[i].properties.parts}}</small></p>
+                        </div>
+                        <div class="col col-67 background04">
+                            <p class="top3_thunderbolts"><small>{{top3.features[i].properties.name}}</small></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-67"></div>
+                    <div class="col-33" style="text-align: center"  ng-if="top3.features[0] != null || top3.features[1] != null || top3.features[2] != null">
+                        <div class="custom_button" style="height: 50px;"  ng-click="locationSwap.go('map', 'top3')">
+                            <b style="color: white;font-size: 20px">See map</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" ng-if="top3.features[0] == null && top3.features[1] == null && top3.features[2] == null">
+                    <p class="top3_nothunderbolts" ><small>Sorry, not enough thunderbolts. Try again later</small></p>
+                </div>
+
+                </br>
+            </h2>
+        </div>
+    </ion-content>
+</ion-view>

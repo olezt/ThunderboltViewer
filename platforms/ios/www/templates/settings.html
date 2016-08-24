@@ -1,0 +1,51 @@
+<ion-view title="{{title}}"  hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-click="locationSwap.go('home')" class="button button-icon icon ion-home"></button>
+    </ion-nav-buttons>
+    <div id="bottom_background">
+        <ion-content class="has-header" scroll="false">
+            <h2>
+                <div ng-repeat="j in order" class="list list-inset" id='CityBox{{j}}' ng-hide="hide(j)" style="text-align: center;background-color: rgba(0, 0, 0, 0.4);color: #a7a9ac;"> 
+                    <div class = "row" ng-app="siteCitys">
+                        <div class = "col-20"><label class="checkbox checkbox-dark">               
+                                <input type="checkbox" style="" ng-model="City[j].checked" ng-disabled="City[j].name === '' || City[j].name === null" ng-checked="checkboxChecked(j)" ng-change="assignCheckbox(j)"><!--{{checkBox}}-->
+                            </label></div>
+
+                        <div class = "col"><input class="nobackground" style="background-color: rgba(0, 0, 0, 0.4);color: white;" ng-model="City[j].name" id="cityPlaceHolder{{j}}"  ng-click="locationSwap.go('search', j)" type="text" ng-change="assignCity(City[j].name, j)" placeholder="Choose a city..."></div>
+                        <div class = "col-20"> <a class="button-icon icon ion-close-circled" ng-click="clearCity(j)" id="clearButton" style="color: #ffcc00;padding-top:  20px"></a></div>
+
+                        </br>
+                    </div> 
+                    <div class="row item item-input-inset nobackground" ng-hide="City[j].name === '' || City[j].name === null" style="color: #a7a9ac;height: 50px">
+                        <div class = "col"> 
+                        </div>
+                        <div class="col-50 custom_button"  style="height: 50px">
+                            <label class="item item-input item-select nobackground" >
+                                <div class="input-label nobackground" >
+                                    <b style="color: white;text-align: right">Hours:</b>
+                                    <select class="nobackground" ng-model="City[j].selectedHours" ng-change="assignHours(City[j].selectedHours, j)" style="text-align: center;color: white;background-color: rgba(0, 0, 0, 0);border-color: rgba(0, 0, 0, 0);">
+                                        <option style="color: black;">24</option>
+                                        <option style="color: black;">12</option>
+                                        <option style="color: black;">6</option>
+                                        <option style="color: black;">3</option>
+                                        <option style="color: black;">2</option>
+                                        <option style="color: black;">1</option>
+                                    </select>                                  
+                                </div>
+                            </label> 
+                        </div>
+                        <div class="col-33 custom_button" id="mapButton{{j}}" style="height: 50px"  ng-click="locationSwap.go('map', j)">
+                            <div style="padding: 15px">
+                                <b style="color: white">See map</b>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+                </br>
+            </h2>
+
+        </ion-content></div>
+</ion-view>

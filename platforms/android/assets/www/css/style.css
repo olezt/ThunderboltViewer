@@ -1,0 +1,226 @@
+.bar.bar-stable {
+ background-color: rgba(0,0,0,1);
+ border-color:  #ffcc00;
+}
+
+.bar.bar-balanced{
+    border-color: black;
+}
+.bar.bar-balanced.bar-footer{
+    border-color: black;
+    background-image: linear-gradient(180deg, #111, #111 50%, transparent 50%);
+    height: 7%;
+}
+
+i{
+    color:white;
+}
+
+.button.button-icon.icon.ion-home{
+    color: #ffcc00;
+}
+
+.button.button-icon.icon.ion-navicon{
+    color: #ffcc00;
+}
+
+.button-clear.button.back-button{
+    color: #ffcc00;
+}
+
+.ion-close-circled:before{
+    padding: 5px;
+}
+
+.custom_button{
+    background-image: url(../img/btn_image.png);
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+.checkbox input:before, .checkbox-icon:before{
+    background: #ffcc00;
+    border-color:  #ffcc00;
+}
+.checkbox input:enabled:before, .checkbox-icon:before{
+    background: black;
+    border-width: 2px;
+}
+
+.checkbox input:disabled:before, .checkbox-icon:before{
+    background:  #444;
+    border-color:  #ffcc00;
+    border-width: 2px;
+}
+
+#bottom_background{
+margin-bottom: 0px;
+height: 100%;
+    background-image:url(../img/background_city.png);
+-moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
+.nobackground{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+.background04{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.scroll {   
+    height: 100%;
+    background-image:url(../img/background_city_fade.png);
+-moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
+.top3_nothunderbolts{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #a7a9ac;
+}
+
+.top3_thunderbolts{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 80%;
+}
+
+.pane {   
+    height: 100%;    
+    background-image:url(../img/background.jpg);
+-moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
+.item-complex .item-content{
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    
+}
+.item-complex, a.item.item-complex, button.item.item-complex{
+    border-color:  #ffcc00;
+}
+
+.home_buttons{
+    position: absolute;
+    bottom: 10px;
+    height: 20%;
+    width: 100%;
+    color: #a7a9ac;
+}
+
+.home_buttons_maps{
+    position: absolute;
+    bottom: 25%;
+    height: 20%;
+    width: 100%;
+    color: #a7a9ac;
+}
+
+#map {
+    width: 100%;
+    height: 86%;
+}
+
+#footer {
+    width: 100%;
+    height: 14%;
+}
+
+#colours{
+    width: 100%;
+    height: 7%;
+}
+
+#colours img {
+    height: 100%;
+    width: 100%;
+}
+
+.item-complex .item-content {
+    background-color: #000000;
+   
+}
+
+.menu.menu-left {
+     background-color: #000000;
+}
+
+#cloud{
+    position: absolute;
+    top: 0px;
+    height: 50%;
+    width: 100%;
+}
+
+#home_background{
+    width: 100%;
+    height: 100%;
+    opacity:0;
+    background-image:url(../img/background_nothunderbolt.jpg);
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
+.button.button-icon  {
+    color:white;
+}
+
+a.item-content{
+    color:white;
+}
+h1.title.ng-binding {
+    color: white;
+}
+ion-nav-back-button.button{
+    color:white;
+}
+header.bar.bar-header.bar-stable h1.title{
+    color:white;
+}
+.bar.bar-header.nav-bar.disable-user-behavior.no-animation h1.title.ng-binding{
+    color:white;
+}
+
+ion-side-menus.view ion-side-menu.menu.menu-left ion-content.has-header.scroll-content.ionic-scroll div.scroll ion-list.disable-user-behavior div.list ion-item.item{
+    color:white;
+    background-color: #000000;
+}
+
+ion-nav-back-button.button-clear.button.back-button {
+    color: white; 
+}
+
+ion-nav-bar.bar-stable.nav-title-slide-ios7.bar.bar-header.nav-bar.disable-user-behavior.reverse h1.title.ng-binding {
+    color:white;
+}
+    
+a:link {
+    text-decoration: none;
+}
+
+div.list.card {
+   background-color:#F0F0F0 ;   
+}
+
+ion-item.button.item{
+    background-color: #444444;
+        color:white;
+}
+

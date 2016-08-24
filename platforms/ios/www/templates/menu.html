@@ -1,0 +1,36 @@
+<ion-side-menus >
+
+    <ion-pane ion-side-menu-content>
+        <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+            <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+    </ion-pane>
+
+    <ion-side-menu side="left">
+        <header class="bar bar-header bar-stable">
+            <h1 class="title"><img src="img/menu_logo.png"  height=100%></h1>
+        </header>
+        <ion-content class="has-header">
+            <ion-list>
+                <ion-item nav-clear menu-close href="#/app/home">
+                    <i class="ion-home" ></i> Home
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/settings">
+                    <i class="ion-gear-a" ></i> Settings
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/map">
+                    <i class="ion-map" ></i> My location
+                </ion-item>
+                <div ng-repeat="i in [0, 1, 2]">
+                    <ion-item ng-hide="!updatedCheckbox(i) || updatedCityName(i) == null" nav-clear menu-close href="#/app/map?i={{i}}"> <!--name={{onchange(i).replace(' ','%20')}}&-->
+                        <i class="ion-map" ></i> {{updatedCityName(i)}}
+                    </ion-item>
+                </div>
+                <ion-item nav-clear menu-close href="#/app/top3">
+                    <i class="ion-ios7-people" ></i> Top 3 on Thunderbolts
+                </ion-item>                
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

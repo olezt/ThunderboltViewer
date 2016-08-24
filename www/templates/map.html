@@ -1,0 +1,23 @@
+<head>
+    <meta http-equiv=“Content-Security-Policy” content="default-src ; style-src ‘self’ ‘unsafe-inline’; script-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’">
+</head>
+
+<ion-view title="{{title}}"  hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-click="locationSwap.go('home')" class="button button-icon icon ion-home"></button>
+    </ion-nav-buttons>
+    
+    <ion-content  scroll="false">
+        <div id="map" data-tap-disabled="true" style="height: 100%">
+            <div id="pane"></div>
+        </div>
+        <div id="footer">
+            <div id="colours"><img src="img/memorandum.png"></div>
+            <div class="bar bar-footer bar-balanced" style="background-color: black">
+                <div id="count" class="title"></div>
+            </div></div>
+    </ion-content>
+</ion-view>

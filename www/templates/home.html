@@ -1,0 +1,38 @@
+<ion-view title="{{title}}" hide-back-button="true">
+    <ion-content class="has-header" scroll="false">
+
+
+        <div class="home_buttons_maps">
+            <div class = "row">
+                <div ng-repeat="i in [0, 1, 2]" class = "col" style="text-align: center" ng-hide="!updatedCheckbox(i) || updatedCityName(i) == null">
+
+                    <img  id="map{{i}}Btn" ng-src="img/map{{i}}Btn.png" on-touch="onTouch('map',{{i}})" height='70px'>
+                    <div>
+                        <b>{{updatedCityName(i) | limitTo:15}}</b></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home_buttons"> 
+            <div class = "row">
+                <div class = "col-33" style="text-align: center">
+                    <img id="settingsBtn" src="img/settingsBtn.png" on-touch="onTouch('settings')" height='70px'>
+                    <div>
+                        <b>Settings</b>
+                    </div>
+                </div>
+                <div class = "col-33" style="text-align: center">
+                    <img id="mapBtn" src="img/mapBtn.png"  on-touch="onTouch('map',null)" height='70px'>
+                    <div>
+                        <b>My location</b></div>
+                </div>
+                <div class = "col-33" style="text-align: center">
+                    <img  id="top3Btn" src="img/top3Btn.png" on-touch="onTouch('top3')" height='70px'>
+                    <div>
+                        <b>Top 3 places</b></div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
