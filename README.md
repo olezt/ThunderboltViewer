@@ -4,7 +4,7 @@
 
 ## Live interpretation of Ligthnings in Greece
 
-**Authot: olezt**
+**Author: olezt**
 
 ### Description
 
@@ -20,6 +20,8 @@ the application gives the opportunity to the user to be informed about the sites
 thunderbolts in the last 24 hours in the broader area of Greece. The clustering of the thunderbolts
 data, to determine these sites, is being processed with the use of the DBScan algorithm at server side - not included in this repository -.
 
+**All interesting files concerning the implementation are at /www folder :D**
+
 ### Printscreens
 
 <p align="center">
@@ -34,10 +36,12 @@ data, to determine these sites, is being processed with the use of the DBScan al
 2. Network state acquisition<br />
 3. Intergrating with google maps and geoJSON
 
-### Install .apk on Android
+### Install .apk on Android device
 
-Install **android-debug.apk** located at:<br />
-ThunderboltViewer/platforms/android/build/outputs/apk/android-debug.apk
+1. Download .apk file from https://github.com/olezt/ThunderboltViewer/releases/
+2. Enable developer settings
+3. Install app<br />
+
 
 ### Setup environment for development - Requirements
 
