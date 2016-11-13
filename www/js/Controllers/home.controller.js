@@ -2,16 +2,19 @@ angular
     .module('app')
     .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.inject = ['$ionicSideMenuDelegate', '$scope', 'LocationSwapService', '$timeout'];
-            function HomeCtrl($ionicSideMenuDelegate, $scope, LocationSwapService, $timeout) {
-
+    HomeCtrl.inject = ['$ionicSideMenuDelegate', 'LocationSwapService', '$timeout'];
+            function HomeCtrl($ionicSideMenuDelegate, LocationSwapService, $timeout) {
+            
+            var vm = this;
+            vm.onTouch = onTouch;
+            vm.locationSwap = LocationSwapService;
+            vm.title = '<img src="img/thunderbolts_logo.png"  height=100%>';
+            vm.thunderbolt = 0;
+            
             $ionicSideMenuDelegate.canDragContent(false);
-            $scope.locationSwap = LocationSwapService;
-            $scope.title = '<img src="img/thunderbolts_logo.png"  height=100%>';
-            $scope.thunderbolt = 0;
             
             //create effect and redirect when user choose an option at home page
-            $scope.onTouch = function (id, i) {
+            function onTouch (id, i) {
                 var option = id;
                 if (id == "map" && i != null) {
                     option = "map" + i;

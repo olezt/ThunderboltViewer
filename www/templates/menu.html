@@ -23,8 +23,8 @@
                     <i class="ion-map" ></i> My location
                 </ion-item>
                 <div ng-repeat="i in [0, 1, 2]">
-                    <ion-item ng-hide="!updatedCheckbox(i) || updatedCityName(i) == null" nav-clear menu-close href="#/app/map?i={{i}}"> <!--name={{onchange(i).replace(' ','%20')}}&-->
-                        <i class="ion-map" ></i> {{updatedCityName(i)}}
+                    <ion-item ng-hide="!vm.updatedCheckbox(i) || vm.updatedCityName(i) == null" nav-clear menu-close href="#/app/map?i={{i}}"> <!--name={{onchange(i).replace(' ','%20')}}&-->
+                        <i class="ion-map" ></i> {{vm.updatedCityName(i)}}
                     </ion-item>
                 </div>
                 <ion-item nav-clear menu-close href="#/app/top3">

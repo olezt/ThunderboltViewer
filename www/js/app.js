@@ -12,7 +12,7 @@ angular
                         url: "/app",
                         abstract: true,
                         templateUrl: "templates/menu.html",
-                        controller: 'MenuCtrl'
+                        controller: 'MenuCtrl as vm'
                     })
 
                     .state('app.top3', {
@@ -40,7 +40,7 @@ angular
                         views: {
                             'menuContent': {
                                 templateUrl: "templates/home.html",
-                                controller: 'HomeCtrl'
+                                controller: 'HomeCtrl as vm'
                             }
                         }
                     })
