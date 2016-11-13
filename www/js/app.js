@@ -1,11 +1,11 @@
 angular
-    .module('app', [
-        'ionic', 
-        'ngCordova', 
-        'ui.router',
-        'autofocus'
-    ])
-    
+        .module('app', [
+            'ionic',
+            'ngCordova',
+            'ui.router',
+            'autofocus'
+        ])
+
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
                     .state('app', {
@@ -20,7 +20,7 @@ angular
                         views: {
                             'menuContent': {
                                 templateUrl: "templates/top3.html",
-                                controller: 'Top3Ctrl'
+                                controller: 'Top3Ctrl as vm'
                             }
                         }
                     })

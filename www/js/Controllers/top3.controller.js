@@ -2,13 +2,15 @@ angular
     .module('app')
     .controller('Top3Ctrl', Top3Ctrl);
     
-    Top3Ctrl.inject = ['$scope', '$http', '$location', 'ConnectionService', 'LocationSwapService'];
+    Top3Ctrl.inject = ['$rootScope', '$http', '$location', 'ConnectionService', 'LocationSwapService'];
 
-    function Top3Ctrl($scope, $http, $location, ConnectionService, LocationSwapService) {
-            $scope.locationSwap = LocationSwapService;
-            $scope.title = '<img src="img/top3_logo.png"  height=100%>';
+    function Top3Ctrl($rootScope, $http, $location, ConnectionService, LocationSwapService) {
+        var vm = this;
+        
+            vm.locationSwap = LocationSwapService;
+            vm.title = '<img src="img/top3_logo.png"  height=100%>';
             ConnectionService.init(false);
-            $scope.top3 = [];
+            vm.top3 = [];
             getTop3Cities();
 
             function getTop3Cities() {
@@ -21,10 +23,10 @@ angular
                         "Content-Type": "application/json"
                     }
                 }).success(function (response) {
-                    $scope.top3 = response;
+                    vm.top3 = response;
                     for (var i = 0; i < response.features.length; i++) {
-                        if ($scope.top3.features[i].properties.name == '') {
-                            $scope.top3.features[i].properties.name = "No named area";
+                        if (vm.top3.features[i].properties.name == '') {
+                            vm.top3.features[i].properties.name = "No named area";
                         }
                     }
                 }).error(function (error) {
@@ -32,8 +34,8 @@ angular
                 });
             }
 
-//retry after internet is enabled again
-            $scope.$on('$locationChangeSuccess', function () {
+            //retry after internet is enabled again
+            $rootScope.$on('$locationChangeSuccess', function () {
                 var internet = $location.search().internet;
                 if (internet == 'true') {
                     console.log("get again");
