@@ -2,11 +2,10 @@ angular
     .module('app')
     .controller('SettingsCtrl', SettingsCtrl);
 
-    SettingsCtrl.inject = ['$scope', 'CityService', '$http', '$location', 'ConnectionService', 'LocationSwapService'];
+    SettingsCtrl.inject = ['$scope', 'CityService', '$http', '$location', 'ConnectionService', 'LocationSwapService', 'HttpRequestService'];
 
         
-        function SettingsCtrl($scope, CityService, $http, $location, ConnectionService, LocationSwapService) {
-            var apiKey = "APIKEY";
+        function SettingsCtrl($scope, CityService, $http, $location, ConnectionService, LocationSwapService, HttpRequestService) {
             ConnectionService.init(false);
 
             $scope.title = '<img src="img/settings_logo.png"   height=100%>';
@@ -113,14 +112,8 @@ angular
 
             //save lat lon of new city
             $scope.assignLatLon = function (cityName, i) {
-                $http({
-                    url: "https://maps.googleapis.com/maps/api/geocode/json?key=" + apiKey + "&region=gr&bounds=31.458014039186203,12.47032852382813|44.20686993524687,33.73985977382813&address=" + cityName,
-                    dataType: "json",
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).success(function (response) {
+                HttpRequestService.getCityLatLon(cityName)
+                .success(function (response) {
                     if (cityName != null) {
                         var cities = [];
                         cities = response.results;
@@ -130,7 +123,8 @@ angular
                         CityService.setlat($scope.City[i].lat, i);
                         CityService.setlon($scope.City[i].lon, i);
                     }
-                }).error(function (error) {
+                })
+                .error(function (error) {
                     $scope.error = error;
                 });
 
@@ -138,14 +132,8 @@ angular
 
             //get addresses that match input of search
             $scope.findAddresses = function (i) {
-                $http({
-                    url: "https://maps.googleapis.com/maps/api/place/autocomplete/json?key=" + apiKey + "&region=gr&bounds=31.458014039186203,12.47032852382813|44.20686993524687,33.73985977382813&input=" + $scope.City[i].name,
-                    dataType: "json",
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).success(function (response) {
+                HttpRequestService.getAutocompleteAdrresses($scope.City[i].name)
+                .success(function (response) {
                     var address = [];
                     var id = [];
                     for (var j = 0; j < response.predictions.length; j++) {
@@ -153,7 +141,8 @@ angular
                         id[j] = response.predictions[j].place_id;
                     }
                     $scope.searchAddresses = angular.fromJson(address);
-                }).error(function (error) {
+                })
+                .error(function (error) {
                     $scope.error = error;
                 });
             };
