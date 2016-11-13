@@ -2,56 +2,65 @@ angular
     .module('app')
     .controller('SettingsCtrl', SettingsCtrl);
 
-    SettingsCtrl.inject = ['$scope', 'CityService', '$http', '$location', 'ConnectionService', 'LocationSwapService', 'HttpRequestService'];
+    SettingsCtrl.inject = ['$rootScope', 'CityService', '$location', 'ConnectionService', 'LocationSwapService', 'HttpRequestService'];
 
         
-        function SettingsCtrl($scope, CityService, $http, $location, ConnectionService, LocationSwapService, HttpRequestService) {
+        function SettingsCtrl($rootScope, CityService, $location, ConnectionService, LocationSwapService, HttpRequestService) {
             ConnectionService.init(false);
-
-            $scope.title = '<img src="img/settings_logo.png"   height=100%>';
-            $scope.searchtitle = '<img src="img/search_logo.png"  height=100%>';
-            $scope.locationSwap = LocationSwapService;
-            $scope.i = $location.search().i;
-
-            $scope.City = [];
+            var vm = this;
+            vm.title = '<img src="img/settings_logo.png"   height=100%>';
+            vm.searchtitle = '<img src="img/search_logo.png"  height=100%>';
+            vm.locationSwap = LocationSwapService;
+            vm.i = $location.search().i;
+            vm.setOrder = setOrder;
+            vm.clearInput = clearInput;
+            vm.hide = hide;
+            vm.clearCity = clearCity;
+            vm.checkboxChecked = checkboxChecked;
+            vm.assignCheckbox = assignCheckbox;
+            vm.assignHours = assignHours;
+            vm.assignLatLon = assignLatLon;
+            vm.findAddresses = findAddresses;
+            
+            vm.City = [];
             for (var i = 0; i < 3; i++) {
-                $scope.City.push({name: CityService.getCity(i), lat: CityService.getlat(i), lon: CityService.getlon(i), checked: CityService.getCheckbox(i), selectedHours: CityService.gethours(i)});
+                vm.City.push({name: CityService.getCity(i), lat: CityService.getlat(i), lon: CityService.getlon(i), checked: CityService.getCheckbox(i), selectedHours: CityService.gethours(i)});
             }
 
-            $scope.order = [];
+            vm.order = [];
             //set order of cities in settings page, in case some are empty
-            $scope.setOrder = function () {
+            function setOrder () {
                 for (var i = 0; i < 3; i++) {
                     if (CityService.getCity(i) == null || CityService.getCity(i) == '') {
-                        if ($scope.order[2] == null) {
-                            $scope.order[2] = i;
-                        } else if ($scope.order[1] == null) {
-                            $scope.order[1] = i;
+                        if (vm.order[2] == null) {
+                            vm.order[2] = i;
+                        } else if (vm.order[1] == null) {
+                            vm.order[1] = i;
                         } else {
-                            $scope.order[0] = i;
+                            vm.order[0] = i;
                         }
                     } else {
-                        if ($scope.order[0] == null) {
-                            $scope.order[0] = i;
-                        } else if ($scope.order[1] == null) {
-                            $scope.order[1] = i;
+                        if (vm.order[0] == null) {
+                            vm.order[0] = i;
+                        } else if (vm.order[1] == null) {
+                            vm.order[1] = i;
                         } else {
-                            $scope.order[2] = i;
+                            vm.order[2] = i;
                         }
                     }
                 }
             }
-            $scope.setOrder();
+            vm.setOrder();
 
             //clear input at search page
-            $scope.clearInput = function (i) {
-                $scope.City[i].name = null;
-                $scope.searchAddresses = null;
+            function clearInput (i) {
+                vm.City[i].name = null;
+                vm.searchAddresses = null;
                 document.getElementById("searchPlace").focus();
             }
 
             //hide empty cities from user
-            $scope.hide = function (i) {
+            function hide (i) {
                 if (i == 0) {
                     return false;
                 } else if ((CityService.getCity(i - 1) === null || CityService.getCity(i - 1) === '') && (CityService.getCity(i) === '' || CityService.getCity(i) === null)) {
@@ -66,8 +75,8 @@ angular
             }
 
             //delete a city
-            $scope.clearCity = function (i) {
-                $scope.City[i].name = null;
+            function clearCity (i) {
+                vm.City[i].name = null;
                 CityService.setCity('', i);
                 CityService.setlat(null, i);
                 CityService.setlon(null, i);
@@ -76,10 +85,10 @@ angular
             }
 
             //set value of each city's checkbox
-            $scope.checkboxChecked = function (i) {
-                if ($scope.City[i].checked == "true") {
+            function checkboxChecked (i) {
+                if (vm.City[i].checked == "true") {
                     return true;
-                } else if ($scope.City[i].checked == true) {
+                } else if (vm.City[i].checked == true) {
                     return true;
                 } else {
                     return false;
@@ -87,52 +96,52 @@ angular
             }
 
             //save new checkbox value
-            $scope.assignCheckbox = function (i) {
-                CityService.setCheckbox($scope.City[i].checked, i);
+            function assignCheckbox (i) {
+                CityService.setCheckbox(vm.City[i].checked, i);
             }
 
             //save new hours value
-            $scope.assignHours = function (selectedHours, i) {
+            function assignHours (selectedHours, i) {
                 CityService.sethours(selectedHours, i);
             }
 
             //update value of settings city name
-            $scope.$on('$locationChangeSuccess', function () {
+            $rootScope.$on('$locationChangeSuccess', function () {
                 var cityName = $location.search().name;
                 var i = $location.search().i;
                 if (cityName != null) {
                     CityService.setCity(cityName, i);
-                    $scope.City[i].name = cityName;
-                    $scope.assignLatLon(cityName, i);
-                    $scope.searchAddresses = null;
+                    vm.City[i].name = cityName;
+                    vm.assignLatLon(cityName, i);
+                    vm.searchAddresses = null;
                     $location.search('name', null);
                 }
-                $scope.setOrder();
+                vm.setOrder();
             });
 
             //save lat lon of new city
-            $scope.assignLatLon = function (cityName, i) {
+            function assignLatLon (cityName, i) {
                 HttpRequestService.getCityLatLon(cityName)
                 .success(function (response) {
                     if (cityName != null) {
                         var cities = [];
                         cities = response.results;
-                        $scope.City[i].lat = cities[0].geometry.location.lat;
-                        $scope.City[i].lon = cities[0].geometry.location.lng;
+                        vm.City[i].lat = cities[0].geometry.location.lat;
+                        vm.City[i].lon = cities[0].geometry.location.lng;
                         //save coordinates to memory
-                        CityService.setlat($scope.City[i].lat, i);
-                        CityService.setlon($scope.City[i].lon, i);
+                        CityService.setlat(vm.City[i].lat, i);
+                        CityService.setlon(vm.City[i].lon, i);
                     }
                 })
                 .error(function (error) {
-                    $scope.error = error;
+                    vm.error = error;
                 });
 
             };
 
             //get addresses that match input of search
-            $scope.findAddresses = function (i) {
-                HttpRequestService.getAutocompleteAdrresses($scope.City[i].name)
+            function findAddresses (i) {
+                HttpRequestService.getAutocompleteAdrresses(vm.City[i].name)
                 .success(function (response) {
                     var address = [];
                     var id = [];
@@ -140,10 +149,10 @@ angular
                         address[j] = response.predictions[j].description;
                         id[j] = response.predictions[j].place_id;
                     }
-                    $scope.searchAddresses = angular.fromJson(address);
+                    vm.searchAddresses = angular.fromJson(address);
                 })
                 .error(function (error) {
-                    $scope.error = error;
+                    vm.error = error;
                 });
             };
         }
