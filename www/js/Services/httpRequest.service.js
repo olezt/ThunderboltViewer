@@ -2,7 +2,7 @@ angular
     .module('app')
     .factory('HttpRequestService', HttpRequestService);
 
-    LocationSwapService.inject = ['$http'];
+    HttpRequestService.inject = ['$http'];
 
 
     function HttpRequestService($http){
@@ -10,7 +10,8 @@ angular
 
             var service = {
                 getCityLatLon: getCityLatLon,
-                getAutocompleteAdrresses: getAutocompleteAdrresses
+                getAutocompleteAdrresses: getAutocompleteAdrresses,
+                getTop3Cities: getTop3Cities
             };
             return service;
             
@@ -34,5 +35,16 @@ angular
                         "Content-Type": "application/json"
                     }
                 });
-        }
+            }
+        
+            function getTop3Cities(top3Api) {
+                return $http({
+                    url: top3Api,
+                    dataType: "json",
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+            }
     }
