@@ -1,10 +1,10 @@
 angular
     .module('app')
-    .controller('AppCtrl', AppCtrl);
+    .controller('MenuCtrl', MenuCtrl);
 
-    AppCtrl.inject = ['$scope', 'CityService'];
+    MenuCtrl.inject = ['$scope', 'CityService'];
                 
-    function AppCtrl($scope, CityService) {
+    function MenuCtrl($scope, CityService) {
             $scope.City = [];
             for (var i = 0; i < 3; i++) {
                 $scope.City.push({name: CityService.getCity(i), checked: CityService.getCheckbox(i)});

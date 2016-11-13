@@ -12,7 +12,7 @@ angular
                         url: "/app",
                         abstract: true,
                         templateUrl: "templates/menu.html",
-                        controller: 'AppCtrl'
+                        controller: 'MenuCtrl'
                     })
 
                     .state('app.top3', {
