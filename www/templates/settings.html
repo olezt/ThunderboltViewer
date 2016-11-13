@@ -8,7 +8,7 @@
     <div id="bottom_background">
         <ion-content class="has-header" scroll="false">
             <h2>
-                <div ng-repeat="j in order" class="list list-inset" id='CityBox{{j}}' ng-hide="hide(j)" style="text-align: center;background-color: rgba(0, 0, 0, 0.4);color: #a7a9ac;"> 
+                <div ng-repeat="j in order track by $index" class="list list-inset" id='CityBox{{j}}' ng-hide="hide(j)" style="text-align: center;background-color: rgba(0, 0, 0, 0.4);color: #a7a9ac;"> 
                     <div class = "row" ng-app="siteCitys">
                         <div class = "col-20"><label class="checkbox checkbox-dark">               
                                 <input type="checkbox" style="" ng-model="City[j].checked" ng-disabled="City[j].name === '' || City[j].name === null" ng-checked="checkboxChecked(j)" ng-change="assignCheckbox(j)"><!--{{checkBox}}-->
