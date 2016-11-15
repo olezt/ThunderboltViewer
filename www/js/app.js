@@ -3,7 +3,8 @@ angular
             'ionic',
             'ngCordova',
             'ui.router',
-            'autofocus'
+            'autofocus',
+            'pascalprecht.translate'
         ])
 
         .config(function ($stateProvider, $urlRouterProvider) {

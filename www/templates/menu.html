@@ -14,13 +14,13 @@
         <ion-content class="has-header">
             <ion-list>
                 <ion-item nav-clear menu-close href="#/app/home">
-                    <i class="ion-home" ></i> Home
+                    <i class="ion-home" ></i> {{'home_msg' | translate}}
                 </ion-item>
                 <ion-item nav-clear menu-close href="#/app/settings">
-                    <i class="ion-gear-a" ></i> Settings
+                    <i class="ion-gear-a" ></i> {{'settings_msg' | translate}}
                 </ion-item>
                 <ion-item nav-clear menu-close href="#/app/map">
-                    <i class="ion-map" ></i> My location
+                    <i class="ion-map" ></i> {{'my_location_msg' | translate}}
                 </ion-item>
                 <div ng-repeat="i in [0, 1, 2]">
                     <ion-item ng-hide="!vm.updatedCheckbox(i) || vm.updatedCityName(i) == null" nav-clear menu-close href="#/app/map?i={{i}}"> <!--name={{onchange(i).replace(' ','%20')}}&-->
@@ -28,7 +28,7 @@
                     </ion-item>
                 </div>
                 <ion-item nav-clear menu-close href="#/app/top3">
-                    <i class="ion-ios7-people" ></i> Top 3 on Thunderbolts
+                    <i class="ion-ios7-people" ></i> {{'top_3_on_thunderbolts_msg' | translate}}
                 </ion-item>                
             </ion-list>
         </ion-content>
