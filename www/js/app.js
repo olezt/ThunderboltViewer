@@ -30,7 +30,7 @@ angular
                         views: {
                             'menuContent': {
                                 templateUrl: "templates/map.html",
-                                controller: 'MapCtrl'
+                                controller: 'MapCtrl as vm'
                             }
                         }
                     })
