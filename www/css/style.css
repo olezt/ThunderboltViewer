@@ -71,6 +71,21 @@ height: 100%;
     color: white;
 }
 
+.nobackgroundempty{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.yellow{
+	    color: #ffcc00;
+}
+
+.black{
+	    color: black;
+}
+
+
 .background04{
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -222,5 +237,11 @@ div.list.card {
 ion-item.button.item{
     background-color: #444444;
         color:white;
+}
+
+.icon.ion-earth{
+	margin-right:10px;
+	color: #ffcc00;
+	font-size: 30px;
 }
 
