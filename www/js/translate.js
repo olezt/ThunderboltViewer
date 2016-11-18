@@ -19,4 +19,5 @@ angular
     
         $translateProvider.forceAsyncReload(true);
 
+        $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
     }]);
