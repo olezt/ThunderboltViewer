@@ -2,9 +2,9 @@ angular
     .module('app')
     .factory('GoogleMapsService', GoogleMapsService);
     
-    GoogleMapsService.inject = ['$cordovaGeolocation', '$location', 'CityService', '$ionicLoading', 'PopUpService'];
+    GoogleMapsService.inject = ['$cordovaGeolocation', '$location', 'CityService', '$ionicLoading', 'PopUpService', '$translate'];
         
-        function GoogleMapsService($cordovaGeolocation, $location, CityService, $ionicLoading, PopUpService){
+        function GoogleMapsService($cordovaGeolocation, $location, CityService, $ionicLoading, PopUpService, $translate){
         
             var listenerHandle;
             var marker = null;
@@ -114,12 +114,17 @@ angular
                 }
                 //display how many thunderbolts are on map 
                 if ($location.search().top3 == null) {
+                    var hours;
                     if ($location.search().i != null) {
-                        document.getElementById("count").innerHTML = count + " thundebolts, last " + CityService.gethours($location.search().i) + " hours <i class=\"icon ion-refresh\"></i>";
-                        //if map with current location is used
-                    } else {
-                        document.getElementById("count").innerHTML = count + " thundebolts, last 2 hours <i class=\"icon ion-refresh\"></i>";
+                        hours = CityService.gethours($location.search().i);
+                    }else{
+                        hours = 2;
                     }
+                    $translate('thunderbolts_last_hours_msg', { count: count, hours: hours }).then(function (translation) {
+                        document.getElementById("count").innerHTML = translation;
+                    },function (translationId) {
+                        document.getElementById("count").innerHTML = "Refresh <i class=\"icon ion-refresh\"></i>";
+                    });
                 }
             }
 

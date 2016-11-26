@@ -30,12 +30,12 @@
                     <div class="col-67"></div>
                     <div class="col-33" style="text-align: center"  ng-if="vm.top3.features[0] != null || top3.features[1] != null || vm.top3.features[2] != null">
                         <div class="custom_button" style="height: 50px;"  ng-click="vm.locationSwap.go('map', 'top3')">
-                            <b style="color: white;font-size: 20px">See map</b>
+                            <b style="color: white;font-size: 20px">{{'see_map_msg' | translate}}</b>
                         </div>
                     </div>
                 </div>
                 <div class="col" ng-if="vm.top3.features[0] == null && vm.top3.features[1] == null && vm.top3.features[2] == null">
-                    <p class="top3_nothunderbolts" ><small>Sorry, not enough thunderbolts. Try again later</small></p>
+                    <p class="top3_nothunderbolts" ><small>{{'Not_enough_thounderbolts_msg' | translate}}</small></p>
                 </div>
 
                 </br>

@@ -14,7 +14,7 @@
                                 <input type="checkbox" style="" ng-model="vm.City[j].checked" ng-disabled="vm.City[j].name === '' || vm.City[j].name === null" ng-checked="vm.checkboxChecked(j)" ng-change="vm.assignCheckbox(j)"><!--{{checkBox}}-->
                             </label></div>
 
-                        <div class = "col"><input class="nobackground" style="background-color: rgba(0, 0, 0, 0.4);color: white;" ng-model="vm.City[j].name" id="cityPlaceHolder{{j}}"  ng-click="vm.locationSwap.go('search', j)" type="text" ng-change="vm.assignCity(City[j].name, j)" placeholder="Choose a city..."></div>
+                        <div class = "col"><input class="nobackground" style="background-color: rgba(0, 0, 0, 0.4);color: white;" ng-model="vm.City[j].name" id="cityPlaceHolder{{j}}"  ng-click="vm.locationSwap.go('search', j)" type="text" ng-change="vm.assignCity(City[j].name, j)" placeholder="{{'choose_a_city_msg' | translate}}"></div>
                         <div class = "col-20"> <a class="button-icon icon ion-close-circled" ng-click="vm.clearCity(j)" id="clearButton" style="color: #ffcc00;padding-top:  20px"></a></div>
 
                         </br>
@@ -25,7 +25,7 @@
                         <div class="col-50 custom_button"  style="height: 50px">
                             <label class="item item-input item-select nobackground" >
                                 <div class="input-label nobackground" >
-                                    <b style="color: white;text-align: right">Hours:</b>
+                                    <b style="color: white;text-align: right">{{'hours_msg' | translate}}:</b>
                                     <select class="nobackground" ng-model="vm.City[j].selectedHours" ng-change="vm.assignHours(vm.City[j].selectedHours, j)" style="text-align: center;color: white;background-color: rgba(0, 0, 0, 0);border-color: rgba(0, 0, 0, 0);">
                                         <option style="color: black;">24</option>
                                         <option style="color: black;">12</option>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-33 custom_button" id="mapButton{{j}}" style="height: 50px"  ng-click="vm.locationSwap.go('map', j)">
                             <div style="padding: 15px">
-                                <b style="color: white">See map</b>
+                                <b style="color: white">{{'see_map_msg' | translate}}</b>
                             </div>                    
                         </div>
                     </div>
