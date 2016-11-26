@@ -21,7 +21,6 @@ angular
             
             return service;
             
-            
             //set style for map and footer
             function footerMapSettings(zoom, visibility, height, markervisible) {
                 map.setZoom(zoom);
@@ -191,7 +190,7 @@ angular
 
             //update data on map
             function updateGeoJson() {
-                //loadingThunderboltsTemplate();
+                loadingThunderboltsTemplate();
                 var apiUrl;
                 clearMarkers();
                 //set api for clusters
@@ -282,7 +281,7 @@ angular
                         //create map for current location
                     } else if (i == null && top3 == null || gps[0] == 'true' || gps[1] == 'true') {
                         //createmap is called inside each case because of the delay of finding location
-                        //loadingLocationTemplate();
+                        loadingLocationTemplate();
                         $cordovaGeolocation.getCurrentPosition(gpsOptions).then(function (position) {
                             gpsOnsuccess(position, refresh);
                             //location was not retrieved
