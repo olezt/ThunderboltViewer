@@ -12,13 +12,38 @@ angular
             vm.thunderbolt = 0;
             vm.updateLang = vm.updateLang;
             vm.initLang = initLang;
-
+            vm.City = [];
+            vm.updatedCityName = updatedCityName;
+            vm.updatedCheckbox = updatedCheckbox;
+            
+            for (var i = 0; i < 3; i++) {
+                vm.City.push({name: CityService.getCity(i), checked: CityService.getCheckbox(i)});
+                //console.log($scope.City[i].name);
+            }
             
             $ionicSideMenuDelegate.canDragContent(false);
             
             $scope.$watch('vm.lang', function() {
                 updateLang();
             });
+            
+            //change city name on menu
+            function updatedCityName (i) {
+                vm.City[i].name = CityService.getCity(i);
+                return vm.City[i].name;
+            };
+
+            //show-hide city name on menu, according to checkbox on settings
+            function updatedCheckbox (i) {
+                vm.City[i].checked = CityService.getCheckbox(i);
+                if (vm.City[i].checked == "true") {
+                    return true;
+                } else if (vm.City[i].checked == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
             
             //create effect and redirect when user choose an option at home page
             function onTouch (id, i) {
