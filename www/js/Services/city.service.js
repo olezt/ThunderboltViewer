@@ -4,60 +4,87 @@ angular
 
     function CityService(){
             var serviceCity = [];
-            var serviceCheckbox = [];
-            var servicelat = [];
-            var servicelon = [];
-            var servicehours = [];
+            initServiceCity ();
+            
+            var service = {
+                getCities: getCities,
+                getCity: getCity,
+                setCity: setCity,
+                getlat: getlat,
+                setlat: setlat,
+                getlon: getlon,
+                setlon: setlon,
+                gethours: gethours,
+                sethours: sethours,
+                getCheckbox: getCheckbox,
+                setCheckbox: setCheckbox
+            };
+            return service;
+               
+                // Initialize settings' options from phone's memory
+                function initServiceCity () {
+                    for (var i = 0; i < 3; i++) {
+                        serviceCity.push({name:window.localStorage['city' + i],lat:window.localStorage['lat' + i],lon:window.localStorage['lon' + i],checkbox:window.localStorage['checkbox' + i] ,hours:window.localStorage['hours' + i]});
+                    }
+                }
+            
+                function getCities () {
+                    return serviceCity;
+                };
 
-            // Initialize settings' options from phone's memory
-            for (var i = 0; i < 3; i++) {
-                serviceCity[i] = window.localStorage['city' + i] || ''; //|| null
-                servicelat[i] = window.localStorage['lat' + i];
-                servicelon[i] = window.localStorage['lon' + i];
-                serviceCheckbox[i] = window.localStorage['checkbox' + i] || false;
-                servicehours[i] = window.localStorage['hours' + i] || 3;
-            }
-
-            return {
-                getCity: function (i) {
-                    return serviceCity[i];
-                },
-                setCity: function (city, i) {
+                function getCity (i) {
+                    if(!serviceCity[i]){
+                        return null;
+                    }
+                    return serviceCity[i].name;
+                }
+                
+                function setCity (name, i) {
+                    if(!serviceCity[i]){
+                        serviceCity[i]={};
+                    }
                     // Simple index lookup
-                    serviceCity[i] = city;
-                    window.localStorage['city' + i] = city;
+                    serviceCity[i].name = name;
+                    window.localStorage['city' + i] = name;
 
-                },
-                getlat: function (i) {
-                    return servicelat[i];
-                },
-                setlat: function (lat, i) {
-                    servicelat[i] = lat;
+                }
+                
+                function getlat (i) {
+                    return serviceCity[i].lat;
+                }
+                
+                function setlat (lat, i) {
+                    serviceCity[i].lat = lat;
                     window.localStorage['lat' + i] = lat;
-                },
-                getlon: function (i) {
-                    return servicelon[i];
-                },
-                setlon: function (lon, i) {
-                    servicelon[i] = lon;
+                }
+                
+                function getlon (i) {
+                    return serviceCity[i].lon;
+                }
+                
+                function setlon (lon, i) {
+                    serviceCity[i].lon = lon;
                     window.localStorage['lon' + i] = lon;
-                },
-                gethours: function (i) {
-                    return servicehours[i];
-                },
-                sethours: function (hours, i) {
-                    servicehours[i] = hours;
+                }
+                
+                function gethours (i) {
+                    return serviceCity[i].hours;
+                }
+                
+                function sethours (hours, i) {
+                    serviceCity[i].hours = hours;
                     window.localStorage['hours' + i] = hours;
+                }
+                
+                function getCheckbox  (i) {
+                    return serviceCity[i].checkbox;
+                }
 
-                },
-                getCheckbox: function (i) {
-                    return serviceCheckbox[i];
-                },
-                setCheckbox: function (checkbox, i) {
-                    serviceCheckbox[i] = checkbox;
+                function setCheckbox (checkbox, i) {
+                    serviceCity[i].checkbox = checkbox;
                     window.localStorage['checkbox' + i] = checkbox;
                 }
-            };
+
         }
         
          

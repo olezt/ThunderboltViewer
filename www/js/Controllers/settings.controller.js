@@ -23,15 +23,13 @@ angular
             vm.findAddresses = findAddresses;
             
             vm.City = [];
-            for (var i = 0; i < 3; i++) {
-                vm.City.push({name: CityService.getCity(i), lat: CityService.getlat(i), lon: CityService.getlon(i), checked: CityService.getCheckbox(i), selectedHours: CityService.gethours(i)});
-            }
+            vm.City = CityService.getCities();
 
             vm.order = [];
             //set order of cities in settings page, in case some are empty
             function setOrder () {
                 for (var i = 0; i < 3; i++) {
-                    if (CityService.getCity(i) == null || CityService.getCity(i) == '') {
+                    if (!vm.City[i].name) {
                         if (vm.order[2] == null) {
                             vm.order[2] = i;
                         } else if (vm.order[1] == null) {
@@ -63,10 +61,10 @@ angular
             function hide (i) {
                 if (i == 0) {
                     return false;
-                } else if ((CityService.getCity(i - 1) === null || CityService.getCity(i - 1) === '') && (CityService.getCity(i) === '' || CityService.getCity(i) === null)) {
+                } else if (!vm.City[i-1].name && !vm.City[i].name) {
                     return true;
                 } else if (i == 2) {
-                    if ((CityService.getCity(i - 2) === null || CityService.getCity(i - 2) === '') && (CityService.getCity(i) === '' || CityService.getCity(i) === null)) {
+                    if (!vm.City[i-2].name && vm.City[i].name) {
                         return true;
                     }
                 } else {
