@@ -8,7 +8,7 @@ angular
         function SettingsCtrl($rootScope, CityService, $location, ConnectionService, LocationSwapService, HttpRequestService) {
             ConnectionService.init(false);
             var vm = this;
-            vm.title = '<img src="img/settings_logo.png"   height=100%>';
+            vm.title = 'img/settings_logo.png';
             vm.searchtitle = '<img src="img/search_logo.png"  height=100%>';
             vm.locationSwap = LocationSwapService;
             vm.i = $location.search().i;
@@ -124,6 +124,7 @@ angular
                 HttpRequestService.getCityLatLon(cityName)
                 .success(function (response) {
                     if (cityName != null) {
+                        vm.City[i].name=cityName;
                         var cities = [];
                         cities = response.results;
                         vm.City[i].lat = cities[0].geometry.location.lat;

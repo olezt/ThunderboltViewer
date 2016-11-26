@@ -6,7 +6,7 @@ angular
 
 
     function HttpRequestService($http){
-            var apiKey = "ApiKey";
+            var apiKey = "AIzaSyAdTE5a0IR28UAcHvf2XZGTix6dEgeMcpY";
 
             var service = {
                 getCityLatLon: getCityLatLon,

@@ -12,6 +12,10 @@
     height: 7%;
 }
 
+.bar .title{
+    color:white;
+}
+
 i{
     color:white;
 }
@@ -52,6 +56,11 @@ i{
     background:  #444;
     border-color:  #ffcc00;
     border-width: 2px;
+}
+
+.checkbox-dark input:checked:before, .checkbox-dark input:checked + .checkbox-icon:before {
+    background: #444;
+    border-color: #ffcc00;
 }
 
 #bottom_background{
@@ -200,13 +209,11 @@ height: 100%;
 a.item-content{
     color:white;
 }
-h1.title.ng-binding {
-    color: white;
-}
+
 ion-nav-back-button.button{
     color:white;
 }
-header.bar.bar-header.bar-stable h1.title{
+.bar.bar-stable .title {
     color:white;
 }
 .bar.bar-header.nav-bar.disable-user-behavior.no-animation h1.title.ng-binding{

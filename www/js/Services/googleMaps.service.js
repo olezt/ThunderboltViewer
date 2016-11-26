@@ -191,7 +191,7 @@ angular
 
             //update data on map
             function updateGeoJson() {
-                loadingThunderboltsTemplate();
+                //loadingThunderboltsTemplate();
                 var apiUrl;
                 clearMarkers();
                 //set api for clusters
@@ -272,7 +272,7 @@ angular
                     var i = $location.search().i;
                     top3 = $location.search().top3;
                     var gps = [$location.search().gps, $location.search().gps2];
-                    loadingLocationTemplate();
+                    //loadingLocationTemplate();
                     //create map for selected city
                     if (i != null) {
                         latLng = new google.maps.LatLng(CityService.getlat(i), CityService.getlon(i));
@@ -282,7 +282,7 @@ angular
                         //create map for current location
                     } else if (i == null && top3 == null || gps[0] == 'true' || gps[1] == 'true') {
                         //createmap is called inside each case because of the delay of finding location
-                        loadingLocationTemplate();
+                        //loadingLocationTemplate();
                         $cordovaGeolocation.getCurrentPosition(gpsOptions).then(function (position) {
                             gpsOnsuccess(position, refresh);
                             //location was not retrieved

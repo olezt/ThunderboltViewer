@@ -8,7 +8,7 @@ angular
         var vm = this;
         
             vm.locationSwap = LocationSwapService;
-            vm.title = '<img src="img/top3_logo.png"  height=100%>';
+            vm.title = 'img/top3_logo.png';
             ConnectionService.init(false);
             vm.top3 = [];
             getTop3Cities();

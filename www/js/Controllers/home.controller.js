@@ -2,23 +2,23 @@ angular
     .module('app')
     .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.inject = ['$scope', '$ionicSideMenuDelegate', 'LocationSwapService', '$timeout', '$translate', 'LanguageService'];
-            function HomeCtrl($scope, $ionicSideMenuDelegate, LocationSwapService, $timeout, $translate, LanguageService) {
+    HomeCtrl.inject = ['$scope', '$ionicSideMenuDelegate', 'LocationSwapService', '$timeout', '$translate', 'LanguageService', 'CityService'];
+            function HomeCtrl($scope, $ionicSideMenuDelegate, LocationSwapService, $timeout, $translate, LanguageService, CityService) {
             
             var vm = this;
             vm.onTouch = onTouch;
             vm.locationSwap = LocationSwapService;
-            vm.title = '<img src="img/thunderbolts_logo.png"  height=100%>';
+            vm.title = 'img/thunderbolts_logo.png';
             vm.thunderbolt = 0;
             vm.updateLang = vm.updateLang;
             vm.initLang = initLang;
+
             
             $ionicSideMenuDelegate.canDragContent(false);
             
             $scope.$watch('vm.lang', function() {
                 updateLang();
             });
-            
             
             //create effect and redirect when user choose an option at home page
             function onTouch (id, i) {

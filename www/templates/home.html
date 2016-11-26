@@ -1,13 +1,17 @@
-<ion-view title="{{vm.title}}" hide-back-button="true">
-    <ion-content class="has-header" scroll="false">
-
-	<ion-nav-buttons side="right">
+<ion-view hide-back-button="true">
+    
+    <ion-nav-title><img src="{{vm.title}}"  height=100%></ion-nav-title>
+    <ion-nav-buttons side="right">
 		<i class="icon ion-earth larger"></i>
         <select class="nobackgroundempty yellow" ng-init="vm.initLang()" ng-model="vm.lang">
       		<option selected class="black" value="en">En</option>
       		<option class="black" value="gr">Gr</option>
     	</select>
-    </ion-nav-buttons>
+                  </ion-nav-buttons> 
+    
+    
+    <ion-content class="has-header" scroll="false">
+
         
         <div class="home_buttons_maps">
             <div class = "row">
