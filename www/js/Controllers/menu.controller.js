@@ -24,9 +24,7 @@ angular
             //show-hide city name on menu, according to checkbox on settings
             function updatedCheckbox (i) {
                 vm.City[i].checkbox = CityService.getCheckbox(i);
-                if (vm.City[i].checkbox == "true") {
-                    return true;
-                } else if (vm.City[i].checkbox == true) {
+                if (vm.City[i].checkbox == "true" || vm.City[i].checkbox == true) {
                     return true;
                 } else {
                     return false;

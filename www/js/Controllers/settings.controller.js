@@ -76,18 +76,18 @@ angular
 
             //set value of each city's checkbox
             function checkboxChecked (i) {
-                if (vm.City[i].checked == "true") {
+                if (vm.City[i].checkbox === "true" || vm.City[i].checkbox === true) {
+                    vm.City[i].checkbox = true;
                     return true;
-                } else if (vm.City[i].checked == true) {
-                    return true;
-                } else {
+                }else {
+                    vm.City[i].checkbox = false;
                     return false;
                 }
             }
 
             //save new checkbox value
             function assignCheckbox (i) {
-                CityService.setCheckbox(vm.City[i].checked, i);
+                CityService.setCheckbox(vm.City[i].checkbox, i);
             }
 
             //save new hours value

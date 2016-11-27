@@ -13,7 +13,7 @@
                 <div ng-repeat="j in vm.order track by $index" class="list list-inset" id='CityBox{{j}}' ng-hide="hide(j)" style="text-align: center;background-color: rgba(0, 0, 0, 0.4);color: #a7a9ac;"> 
                     <div class = "row" ng-app="siteCitys">
                         <div class = "col-20"><label class="checkbox checkbox-dark">               
-                                <input type="checkbox" style="" ng-model="vm.City[j].checked" ng-disabled="vm.City[j].name === '' || vm.City[j].name === null" ng-checked="vm.checkboxChecked(j)" ng-change="vm.assignCheckbox(j)"><!--{{checkBox}}-->
+                                <input type="checkbox" style="" ng-model="vm.City[j].checkbox" ng-disabled="vm.City[j].name === '' || vm.City[j].name === null" ng-checked="vm.checkboxChecked(j)" ng-change="vm.assignCheckbox(j)">
                             </label></div>
 
                         <input class="nobackground col-60" style="background-color: rgba(0, 0, 0, 0.4);color: white;" ng-model="vm.City[j].name" id="cityPlaceHolder{{j}}"  ng-click="vm.locationSwap.go('search', j)" type="text" ng-change="vm.assignCity(City[j].name, j)" placeholder="{{'choose_a_city_msg' | translate}}">
