@@ -17,7 +17,7 @@ angular
             vm.updatedCheckbox = updatedCheckbox;
             
             for (var i = 0; i < 3; i++) {
-                vm.City.push({name: CityService.getCity(i), checked: CityService.getCheckbox(i)});
+                vm.City.push({name: CityService.getCity(i), checkbox: CityService.getCheckbox(i)});
                 //console.log($scope.City[i].name);
             }
             
@@ -35,10 +35,10 @@ angular
 
             //show-hide city name on menu, according to checkbox on settings
             function updatedCheckbox (i) {
-                vm.City[i].checked = CityService.getCheckbox(i);
-                if (vm.City[i].checked == "true") {
+                vm.City[i].checkbox = CityService.getCheckbox(i);
+                if (vm.City[i].checkbox == "true") {
                     return true;
-                } else if (vm.City[i].checked == true) {
+                } else if (vm.City[i].checkbox == true) {
                     return true;
                 } else {
                     return false;
