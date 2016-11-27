@@ -24,31 +24,22 @@ angular
             
             vm.City = [];
             vm.City = CityService.getCities();
+            vm.setOrder();
 
-            vm.order = [];
             //set order of cities in settings page, in case some are empty
             function setOrder () {
+                vm.order=[];
+                var emptyValues=[];
+                
                 for (var i = 0; i < 3; i++) {
-                    if (!vm.City[i].name) {
-                        if (vm.order[2] == null) {
-                            vm.order[2] = i;
-                        } else if (vm.order[1] == null) {
-                            vm.order[1] = i;
-                        } else {
-                            vm.order[0] = i;
-                        }
-                    } else {
-                        if (vm.order[0] == null) {
-                            vm.order[0] = i;
-                        } else if (vm.order[1] == null) {
-                            vm.order[1] = i;
-                        } else {
-                            vm.order[2] = i;
-                        }
-                    }
+                    if (vm.City[i].name) {
+                        vm.order.push(i);
+                    }else{
+                        emptyValues.push(i);   
+                    }   
                 }
+                vm.order.push.apply(vm.order, emptyValues);
             }
-            vm.setOrder();
 
             //clear input at search page
             function clearInput (i) {
@@ -64,7 +55,7 @@ angular
                 } else if (!vm.City[i-1].name && !vm.City[i].name) {
                     return true;
                 } else if (i == 2) {
-                    if (!vm.City[i-2].name && vm.City[i].name) {
+                    if (!vm.City[i-2].name && !vm.City[i].name) {
                         return true;
                     }
                 } else {
@@ -80,6 +71,7 @@ angular
                 CityService.setlon(null, i);
                 CityService.sethours('3', i);
                 CityService.setCheckbox(false, i);
+                vm.setOrder();
             }
 
             //set value of each city's checkbox
