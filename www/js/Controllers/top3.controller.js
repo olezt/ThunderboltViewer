@@ -14,7 +14,7 @@ angular
             getTop3Cities();
 
             function getTop3Cities() {
-                var top3Api = "http://195.251.31.119/~strikes/api/index.php/ClustersController/gettop?number=3";
+                var top3Api = "https://murmuring-tundra-79115.herokuapp.com/http://195.251.31.119/~strikes/api/index.php/ClustersController/gettop?number=3";
                 HttpRequestService.getTop3Cities(top3Api)
                 .success(function (response) {
                     vm.top3 = response;
