@@ -195,12 +195,12 @@ angular
                 clearMarkers();
                 //set api for clusters
                 if (top3 != null) {
-                    apiUrl = "http://195.251.31.119/~strikes/api/index.php/ClustersController/gettop?number=3";
+                    apiUrl = "https://murmuring-tundra-79115.herokuapp.com/http://195.251.31.119/~strikes/api/index.php/ClustersController/gettop?number=3";
                     setThunderStyle(true);
                     //set api for thunderbolts
                 } else {
                     var i = $location.search().i;
-                    apiUrl = "http://195.251.31.119/~strikes/api/index.php/ThunderboltsController";
+                    apiUrl = "https://murmuring-tundra-79115.herokuapp.com/http://195.251.31.119/~strikes/api/index.php/ThunderboltsController";
                     //set map bounds to get thunderbolts only in between
                     var params = '&nelat=' + bounds.getNorthEast().lat() + '&nelng=' + bounds.getNorthEast().lng() + '&swlat=' + bounds.getSouthWest().lat() + '&swlng=' + bounds.getSouthWest().lng();
                     //if specific city is used
