@@ -39,12 +39,12 @@ angular
 
             function doWhenOffline() {
                 if (alertPopup === null) {
-                    PopUpService.createPopUp();
+                    //PopUpService.createPopUp();
                 }
             }
 
             function doWhenOnline(refresh) {
-                PopUpService.hidePopUp();
+                //PopUpService.hidePopUp();
                 if ($location.path() === "/app/map") {
                     checkLoaded(refresh);
                 }
