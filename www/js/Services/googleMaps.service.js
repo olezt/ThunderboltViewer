@@ -190,7 +190,7 @@ angular
 
             //update data on map
             function updateGeoJson() {
-                loadingThunderboltsTemplate();
+                //loadingThunderboltsTemplate();
                 var apiUrl;
                 clearMarkers();
                 //set api for clusters
@@ -253,13 +253,13 @@ angular
                 if (error == "PositionError.PERMISSION_DENIED" || error.message == "User denied Geolocation" || error.message == "The last location provider was disabled") {
                     //if user opened gps-location settings
                     if (gps[0] == 'true') {
-                        PopUpService.createGpsPopUp('settings_opened', error);
+                        //PopUpService.createGpsPopUp('settings_opened', error);
                     } else {
-                        PopUpService.createGpsPopUp(false, error);
+                        //PopUpService.createGpsPopUp(false, error);
                     }
                     //if gps was enabled but location not found
                 } else {
-                    PopUpService.createGpsPopUp(true, error);
+                    //PopUpService.createGpsPopUp(true, error);
                 }
             };
 
@@ -281,7 +281,7 @@ angular
                         //create map for current location
                     } else if (i == null && top3 == null || gps[0] == 'true' || gps[1] == 'true') {
                         //createmap is called inside each case because of the delay of finding location
-                        loadingLocationTemplate();
+                        //loadingLocationTemplate();
                         $cordovaGeolocation.getCurrentPosition(gpsOptions).then(function (position) {
                             gpsOnsuccess(position, refresh);
                             //location was not retrieved
