@@ -261,7 +261,7 @@ ion-item.button.item{
     z-index: 1;
     width: 281px;
     height: 610px;
-    background: url(../img/phone-case-610.png) no-repeat right top;
+    background: url(../img/phone-case-610.png) no-repeat center;
 }
 
 .text-background {
@@ -271,18 +271,7 @@ ion-item.button.item{
     z-index: 1;
     width: 281px;
     height: 610px;
-    background: url(../img/text_background_610.png) no-repeat right top;
-}
-
-.text-background-vertical {
-
-	margin-top:350px;
-    float: right;
-    position: relative;
-    z-index: 1;
-    width: 244px;
-    height: 100px;
-    background: url(../img/text_background_vertical_610.png) no-repeat right top;
+    background: url(../img/text_background_610.png) no-repeat center;
 }
 
 .phone-case-margin{
@@ -296,22 +285,13 @@ ion-item.button.item{
 .text-case-margin{
 	width:271px;
 	height:475px;
-	padding-top: 90px;
+	padding-top: 46px;
 	padding-left: 10px;
 	position: relative;
 }
 
-.text-vertical-case-margin{
-	width:244px;
-	height:100px;
-	padding-top: 12px;
-	padding-left: 35px;
-	padding-right: 8px;
-	position: relative;
-}
-
 .background-image{
-	background: url(../img/background.jpg) no-repeat center center fixed; 
+	background: url(../img/background-ghpage.jpg) no-repeat center center fixed; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -320,7 +300,7 @@ ion-item.button.item{
 
 html,body{height:100%}
 
-.scroll{
+.scroll-background{
 	height:100%;
 	overflow:auto;
 }
