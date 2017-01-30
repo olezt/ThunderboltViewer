@@ -17,7 +17,7 @@ angular
             
             function getCityLatLon(cityName) {
                 return $http({
-                    url: "https://maps.googleapis.com/maps/api/geocode/json?key=" + apiKey + "&region=gr&bounds=31.458014039186203,12.47032852382813|44.20686993524687,33.73985977382813&address=" + cityName,
+                    url: "https://murmuring-tundra-79115.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?key=" + apiKey + "&region=gr&bounds=31.458014039186203,12.47032852382813|44.20686993524687,33.73985977382813&address=" + cityName,
                     dataType: "json",
                     method: "GET",
                     headers: {
@@ -28,7 +28,7 @@ angular
             
             function getAutocompleteAdrresses(userInput) {
                 return $http({
-                    url: "https://maps.googleapis.com/maps/api/place/autocomplete/json?key=" + apiKey + "&region=gr&bounds=31.458014039186203,12.47032852382813|44.20686993524687,33.73985977382813&input=" + userInput,
+                    url: "https://murmuring-tundra-79115.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?key=" + apiKey + "&region=gr&bounds=31.458014039186203,12.47032852382813|44.20686993524687,33.73985977382813&input=" + userInput,
                     dataType: "json",
                     method: "GET",
                     headers: {
