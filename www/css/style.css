@@ -327,3 +327,7 @@ h3{
 b{
 	font-size: 15px;
 }
+
+.title.title-center.header-item{
+	left: 0px;
+}
