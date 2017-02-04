@@ -15,6 +15,7 @@ angular
             vm.City = [];
             vm.updatedCityName = updatedCityName;
             vm.updatedCheckbox = updatedCheckbox;
+            vm.changeBackground = changeBackground;
             
             for (var i = 0; i < 3; i++) {
                 vm.City.push({name: CityService.getCity(i), checkbox: CityService.getCheckbox(i)});
@@ -26,6 +27,16 @@ angular
             $scope.$watch('vm.lang', function() {
                 updateLang();
             });
+            
+            function changeBackground(thunders){
+            	if(thunders){
+            		document.getElementsByClassName("pane")[2].style.backgroundImage = "url('../img/background_nothunderbolt.jpg')";
+            	}else{
+            		document.getElementsByClassName("pane")[2].style.backgroundImage = "url('../img/background.jpg')";
+            	}
+                return !thunders;
+            }
+            
             
             //change city name on menu
             function updatedCityName (i) {

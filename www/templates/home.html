@@ -10,9 +10,9 @@
                   </ion-nav-buttons> 
     
     
-    <ion-content class="has-header" scroll="false">
-
-        
+    <ion-content class="has-header" scroll="false" ng-init="thunders=true">
+		<div class="game" on-touch="thunders=vm.changeBackground(thunders)">
+		</div>
         <div class="home_buttons_maps">
             <div class = "row">
                 <div ng-repeat="i in [0, 1, 2]" class = "col" style="text-align: center" ng-hide="!vm.updatedCheckbox(i) || vm.updatedCityName(i) == null">
