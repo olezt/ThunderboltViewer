@@ -337,3 +337,11 @@ b{
     margin-right: auto;
     display: block;
 }
+
+.counting{
+	margin-top: -10px !important;
+}
+
+.map-title{
+	margin-left: 25px !important;
+}
