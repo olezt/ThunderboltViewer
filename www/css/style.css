@@ -331,3 +331,9 @@ b{
 .title.title-center.header-item{
 	left: 0px !important;
 }
+
+.centered-logo{
+	margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
