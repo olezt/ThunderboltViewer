@@ -20,6 +20,10 @@ the application gives the opportunity to the user to be informed about the sites
 thunderbolts in the last 24 hours in the broader area of Greece. The clustering of the thunderbolts
 data, to determine these sites, is being processed with the use of the DBScan algorithm at server side - not included in this repository -.
 
+### Demo
+
+https://olezt.github.io/ThunderboltViewer/
+
 **All interesting files concerning the implementation are at /www folder :D**
 
 ### Printscreens
