@@ -54,6 +54,7 @@ angular
                 document.getElementById(option + "Btn").src = "img/" + option + "Btn2.png";
                 $timeout(function () {
                     LocationSwapService.go(id, i);
+                	document.getElementById(option + "Btn").src = "img/" + option + "Btn.png";
                 }, 75);
 
             }
