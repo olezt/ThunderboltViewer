@@ -329,5 +329,5 @@ b{
 }
 
 .title.title-center.header-item{
-	left: 0px;
+	left: 0px !important;
 }
