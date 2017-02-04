@@ -30,9 +30,9 @@ angular
             
             function changeBackground(thunders){
             	if(thunders){
-            		document.getElementsByClassName("pane")[2].style.backgroundImage = "url('../img/background_nothunderbolt.jpg')";
+            		document.getElementsByClassName("pane")[2].style.backgroundImage = "url('https://raw.githubusercontent.com/olezt/ThunderboltViewer/gh-pages/www/img/background_nothunderbolt.jpg')";
             	}else{
-            		document.getElementsByClassName("pane")[2].style.backgroundImage = "url('../img/background.jpg')";
+            		document.getElementsByClassName("pane")[2].style.backgroundImage = "url('https://raw.githubusercontent.com/olezt/ThunderboltViewer/gh-pages/www/img/background.jpg')";
             	}
                 return !thunders;
             }
