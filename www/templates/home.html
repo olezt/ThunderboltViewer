@@ -1,5 +1,4 @@
-<ion-view hide-back-button="true">
-    
+<ion-view hide-back-button="true" ng-class="!vm.thunders?'noThunderbolt':null">
     <ion-nav-title><img src="{{vm.title}}"  height=100%></ion-nav-title>
     <ion-nav-buttons side="right">
 		<i class="icon ion-earth larger"></i>
@@ -10,16 +9,16 @@
                   </ion-nav-buttons> 
     
     
-    <ion-content class="has-header" scroll="false">
-
-        
+    <ion-content class="has-header" scroll="false" ng-init="vm.thunders=true">
+		<div class="game" on-touch="vm.thunders=!vm.thunders">
+		</div>
         <div class="home_buttons_maps">
             <div class = "row">
                 <div ng-repeat="i in [0, 1, 2]" class = "col" style="text-align: center" ng-hide="!vm.updatedCheckbox(i) || vm.updatedCityName(i) == null">
 
                     <img  id="map{{i}}Btn" ng-src="img/map{{i}}Btn.png" on-touch="vm.onTouch('map',{{i}})" height='70px'>
                     <div>
-                        <b>{{vm.updatedCityName(i) | limitTo:15}}</b></div>
+                        <b style="font-size: 10px;">{{vm.updatedCityName(i) | limitTo:15}}</b></div>
                 </div>
             </div>
         </div>
@@ -29,18 +28,18 @@
                 <div class = "col-33" style="text-align: center">
                     <img id="settingsBtn" src="img/settingsBtn.png" on-touch="vm.onTouch('settings')" height='70px'>
                     <div>
-                        <b>{{'settings_msg' | translate}}</b>
+                        <b style="font-size: 10px;">{{'settings_msg' | translate}}</b>
                     </div>
                 </div>
                 <div class = "col-33" style="text-align: center">
                     <img id="mapBtn" src="img/mapBtn.png"  on-touch="vm.onTouch('map',null)" height='70px'>
                     <div>
-                        <b>{{'my_location_msg' | translate}}</b></div>
+                        <b style="font-size: 10px;">{{'my_location_msg' | translate}}</b></div>
                 </div>
                 <div class = "col-33" style="text-align: center">
                     <img  id="top3Btn" src="img/top3Btn.png" on-touch="vm.onTouch('top3')" height='70px'>
                     <div>
-                        <b>{{'top_3_places_msg' | translate}}</b></div>
+                        <b style="font-size: 10px;">{{'top_3_places_msg' | translate}}</b></div>
                 </div>
             </div>
         </div>

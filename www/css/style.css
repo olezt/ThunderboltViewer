@@ -130,6 +130,15 @@ height: 100%;
     background-size: 100% 100%;
 }
 
+.noThunderbolt{
+	    height: 100%;    
+    background-image:url(../img/background_nothunderbolt.jpg);
+-moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
 .item-complex .item-content{
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
@@ -141,7 +150,7 @@ height: 100%;
 
 .home_buttons{
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
     height: 20%;
     width: 100%;
     color: #a7a9ac;
@@ -149,7 +158,7 @@ height: 100%;
 
 .home_buttons_maps{
     position: absolute;
-    bottom: 25%;
+    bottom: 32%;
     height: 20%;
     width: 100%;
     color: #a7a9ac;
@@ -252,3 +261,38 @@ ion-item.button.item{
 	font-size: 30px;
 }
 
+
+p{
+	color:white;
+	text-align:justify;
+	letter-spacing: -1px;
+}
+a{
+	color:white;
+}
+
+b{
+	font-size: 15px;
+}
+
+.title.title-center.header-item{
+	left: 0px !important;
+}
+
+
+.counting{
+	margin-top: -10px !important;
+}
+
+.map-title{
+	margin-left: 25px !important;
+}
+
+.game{
+	margin-left: auto;
+    margin-right: auto;
+    display: block;
+	width:50px;
+	margin-top:100px;
+	height:110px;
+}
