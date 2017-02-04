@@ -130,6 +130,15 @@ height: 100%;
     background-size: 100% 100%;
 }
 
+.noThunderbolt{
+	    height: 100%;    
+    background-image:url(../img/background_nothunderbolt.jpg);
+-moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
 .item-complex .item-content{
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);

@@ -1,5 +1,4 @@
-<ion-view hide-back-button="true">
-    
+<ion-view hide-back-button="true" ng-class="!vm.thunders?'noThunderbolt':null">
     <ion-nav-title style="left:0px"><img src="{{vm.title}}"  width=100%></ion-nav-title>
     <ion-nav-buttons side="right">
 		<i class="icon ion-earth larger"></i>
@@ -10,8 +9,8 @@
                   </ion-nav-buttons> 
     
     
-    <ion-content class="has-header" scroll="false" ng-init="thunders=true">
-		<div class="game" on-touch="thunders=vm.changeBackground(thunders)">
+    <ion-content class="has-header" scroll="false" ng-init="vm.thunders=true">
+		<div class="game" on-touch="vm.thunders=!vm.thunders">
 		</div>
         <div class="home_buttons_maps">
             <div class = "row">
