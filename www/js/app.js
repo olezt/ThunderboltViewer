@@ -65,7 +65,17 @@ angular
                             }
                         }
                     })
-
+                    
+                   .state('app.blitzortung', {
+                        url: "/blitzortung",
+                        views: {
+                            'menuContent': {
+                                templateUrl: "templates/blitzortung.html",
+                                controller: 'BlitzortungCtrl as vm'
+                            }
+                        }
+                    })
+                    
             // if none of the above states are matched, use this as the fallback
             $urlRouterProvider.otherwise('/app/home');
         });
