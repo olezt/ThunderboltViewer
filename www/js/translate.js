@@ -12,7 +12,8 @@ angular
             'see_map_msg': 'Map',
             'Not_enough_thounderbolts_msg': 'Not enough thunderbolts. Please try again later',
             'hours_msg': 'Hours',
-            'thunderbolts_last_hours_msg' : '{{count}}, last {{hours}} hours <i class="icon ion-refresh"></i>'
+            'thunderbolts_last_hours_msg' : '{{count}}, last {{hours}} hours <i class="icon ion-refresh"></i>',            
+            'blitzortung_map_msg': 'Blitzortung Map'
 
         });
   
@@ -26,7 +27,8 @@ angular
             'see_map_msg': 'Χάρτης',
             'Not_enough_thounderbolts_msg': 'Δεν υπάρχουν αρκετοί κεραυνοί. Δοκιμάστε ξανά αργότερα.',
             'hours_msg': 'Ώρες',
-            'thunderbolts_last_hours_msg' : '{{count}}, τις τελευταίες {{hours}} ώρες <i class="icon ion-refresh"></i>'
+            'thunderbolts_last_hours_msg' : '{{count}}, τις τελευταίες {{hours}} ώρες <i class="icon ion-refresh"></i>',
+            'blitzortung_map_msg': 'Blitzortung Χάρτης'
         });
         
         $translateProvider.preferredLanguage('en');

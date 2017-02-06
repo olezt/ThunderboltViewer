@@ -1,5 +1,8 @@
 <ion-view hide-back-button="true" ng-class="!vm.thunders?'noThunderbolt':null">
     <ion-nav-title><img src="{{vm.title}}"  height=100%></ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
     <ion-nav-buttons side="right">
 		<i class="icon ion-earth larger"></i>
         <select class="nobackgroundempty yellow" ng-init="vm.initLang()" ng-model="vm.lang">
