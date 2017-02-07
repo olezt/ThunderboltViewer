@@ -11,7 +11,7 @@ BlitzortungCtrl.inject = ['$rootScope', '$http', '$interval', '$location', 'Conn
             vm.refreshBlitzortungMap = refreshBlitzortungMap;
 //            vm.title = 'img/blitzortung_logo.png';
             vm.title = 'Blitzortung';
-            vm.blitzortungMapUrl = "https://murmuring-tundra-79115.herokuapp.com/images.blitzortung.org/Images/image_b_gr.png?t=1";
+            vm.blitzortungMapUrl = "http://images.blitzortung.org/Images/image_b_gr.png?t=1";
             $interval(refreshBlitzortungMap, 63000);
             ConnectionService.init(false);
 
